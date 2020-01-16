@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+   
+{% block masterhead %}
+    <header class="page-section masthead jumbotron d-flex align-items-center min-vh-100 text-light custom-header">
+        <div class="container">
+            <!-- Login Form -->
+            <div class="row justify-content-center">
+                <form method="post">
+                    {% csrf_token %}
+                    <legend> Se connecter</legend>
+                    {{ form|crispy}}
+                    <input name="valider" type="submit">
+                </form>                      
+            </div>
+            <!-- Spacing -->
+            <hr class="divider my-4">
+            <!-- Signup link -->
+            <div class="row justify-content-center">
+                <p>Pas de compte ? <a href="{% url 'signup' %}">Enregistrez-vous </a>!</p>  
+            </div>      
+        </div>
+    </header>    
+{% endblock masterhead %}
+    

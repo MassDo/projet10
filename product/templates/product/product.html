@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'search/css/custom.css' %}">
+{% endblock css %}
+  
+
+<!-- Product searched -->
+{% block masterhead %}
+    <header class="masthead masthead-custom custom-header" style=
+    "background: url('{{ product.image }}');
+    background-repeat: no-repeat;
+    background-position:bottom;
+    background-size: auto;
+    background-color:rgb(196, 191, 183)"> 
+        <div class="container">
+          <div class="row h-30 align-items-center justify-content-center text-center">
+              <div class="col-lg-10 align-self-end">
+                <h1 class="text-uppercase text-white font-weight-bold prod-title-custom">{{ product.name }}</h1>
+              </div>
+          </div>
+        </div>
+    </header>    
+{% endblock masterhead %}
+
+
+{% block results %}
+    <section class="page-section">
+        <div class="container">
+            <!-- Row 1 -->
+            <div class="row">
+                <!-- Nutriscore -->
+                <div class="col-lg-6 col-md-6 text-center custom-div ">
+                    <div class="mt-5 "> 
+                        <!-- Prod -->
+                        <h3 class="h4 mb-2">{{ product.name }}</h3>
+                        
+                        {% with 'search/img/'|add:product.nutriscore|add:'.png' as img_stat %}
+                           <img  src="{% static img_stat %}" alt=""> 
+                        {% endwith %}
+                            
+                        
+                    </div>
+                </div>
+                <!-- 100g -->
+                <div class="col-lg-6 col-md-6 text-center custom-div ">
+                    <div class="mt-5 "> 
+                        <!-- Prod -->
+                        <h3 class="h4 mb-2">Repères nutritionnels pour 100g</h3>
+                        <p>gras: {{product.fat}} g</p>
+                        <p>sucre: {{product.sugars}} g</p>
+                        <p>sel: {{product.salt}} g</p>
+                    </div>
+                </div>                
+            </div>  
+            <div class="col-12 text-center">
+                <hr>
+                <hr>
+                <a href={{product.link}} target="_blank">Voir la fiche D'OpenFoodFacts</a>
+                
+            </div>   
+        </div>
+
+
+    </section>
+{% endblock results %}
+    
