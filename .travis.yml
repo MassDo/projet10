@@ -4,6 +4,7 @@ python:
 install:
   - pip install pipenv
   - pipenv install
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)
 
 branches:
   only:
