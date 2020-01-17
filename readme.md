@@ -1,4 +1,4 @@
-# Projet-8-Purbeurre
+# Projet-10-Purbeurre
 
 Search for a food product, and the application will find for you healther comparable products ! 
 
